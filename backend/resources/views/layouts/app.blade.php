@@ -1,9 +1,6 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
-    @include('layouts.parts.head')
-    @yield('css')
-</head>
+@include('layouts.parts.head')
 <body>
     <div id="app">
         @include('layouts.parts.header')
@@ -12,6 +9,6 @@
             @yield('content')
         </main>
     </div>
-    @yield('js')
+    <script src="{{ mix('js/app.js') }}" defer></script>
 </body>
 </html>
