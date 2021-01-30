@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class TodosController extends Controller
+class TodoController extends Controller
 {
     public function index()
     {
-        return view('todos.index');
+        return view('todo.index');
     }
 }
