@@ -3,43 +3,61 @@
 @section('content')
 <div class="container">
     <div class="row">
+        <div class="col-md-12 mb-3">
+            <a href="todo" class="btn btn-secondary btn-block">ToDo一覧へ</a>
+        </div>
+
         <div class="col-md-12">            
-            <div class="card">
-                <div class="card-header">
-                    <span>ToDoカテゴリ一覧</span>
-                </div>
-                <div class="card-body">
-                    <div class="mb-2">
-                        <button class="btn btn-primary btn-sm">ToDoカテゴリ 追加</button>
-                        <span class="ml-2">|</span>
-                        <a href="todo" class="btn btn-link btn-sm">ToDo一覧へ</a>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="card">
+                        <div class="card-header">
+                            <span>ToDoカテゴリ追加</span>
+                        </div>
+                        <div class="card-body">
+                            <form id="todoCategoryForm" action="todo-category" method="POST">
+                                @csrf
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="name">
+                                </div>
+                                <div class="float-right">
+                                    <button type="button" class="btn btn-light border" style="width:100px;">キャンセル</button>
+                                    <button type="button"class="btn btn-primary ml-2" style="width:100px;">追加</button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
-                    <table class="table table-hover">
-                        <thead>
-                        <tr>
-                            <th scope="col">カテゴリ名</th>
-                            <th scope="col">編集</th>
-                            <th scope="col">削除</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($todo_categories as $todo_category)
+                </div>
+
+                <div class="col-md-9">
+                    <div class="card">
+                        <div class="card-header">
+                            <span>ToDoカテゴリ一覧</span>
+                        </div>
+                        <div class="card-body">
+                            <table class="table table-hover">
+                                <thead>
                                 <tr>
-                                    <td style="width:70%;">{{ $todo_category->name }}</td>
-                                    <td style="width:15%;">
-                                        <a href="#" class="btn btn-success btn-sm">編集</a>
-                                    </td>
-                                    <td style="width:15%;">
-                                        <button class="btn btn-danger btn-sm">削除</button>
-                                    </td>
+                                    <th scope="col">カテゴリ名</th>
+                                    <th scope="col">削除</th>
                                 </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
+                                </thead>
+                                <tbody>
+                                    @foreach ($todo_categories as $todo_category)
+                                        <tr>
+                                            <td style="width:90%;">{{ $todo_category->name }}</td>
+                                            <td style="width:10%;">
+                                                <button class="btn btn-danger btn-sm">削除</button>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-
     </div>
 </div>
 @endsection
