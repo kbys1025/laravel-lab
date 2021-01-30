@@ -10,7 +10,7 @@
                 </div>
                 <div class="card-body">
                     <div class="mb-2">
-                        <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#createTodoCategoryModal">ToDoカテゴリ 追加</button>
+                        <button class="btn btn-primary btn-sm">ToDoカテゴリ 追加</button>
                         <span class="ml-2">|</span>
                         <a href="todo" class="btn btn-link btn-sm">ToDo一覧へ</a>
                     </div>
@@ -42,7 +42,4 @@
 
     </div>
 </div>
-@component('modal.todo_category_form')
-@endcomponent
-
 @endsection
