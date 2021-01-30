@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12 mb-3">
-            <a href="#" class="btn btn-secondary btn-block">カテゴリを管理する</a>
+            <a href="todo-category" class="btn btn-secondary btn-block">カテゴリを管理する</a>
         </div>
         
         <div class="col-md-12">            
