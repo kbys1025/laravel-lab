@@ -37,7 +37,11 @@ class TodoCategoryController extends Controller
      */
     public function store(TodoCategoryRequest $request)
     {
-        //
+        $todo_category = new TodoCategory;
+        $todo_category->name = $request->name;
+        $todo_category->save();
+
+        return redirect('todo-category');
     }
 
     /**
