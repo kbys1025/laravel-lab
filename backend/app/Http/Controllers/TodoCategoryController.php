@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\TodoCategory;
+use App\Http\Requests\TodoCategoryRequest;
 
 class TodoCategoryController extends Controller
 {
@@ -34,7 +35,7 @@ class TodoCategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(TodoCategoryRequest $request)
     {
         //
     }

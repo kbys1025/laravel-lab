@@ -18,11 +18,14 @@
                             <form id="todoCategoryForm" action="todo-category" method="POST">
                                 @csrf
                                 <div class="form-group">
+                                    @if ($errors->has('name'))
+                                        <span class="text-danger">{{ $errors->first('name') }}</span>
+                                    @endif
                                     <input type="text" class="form-control" name="name">
                                 </div>
                                 <div class="float-right">
                                     <button type="button" class="btn btn-light border" style="width:100px;">キャンセル</button>
-                                    <button type="button"class="btn btn-primary ml-2" style="width:100px;">追加</button>
+                                    <button type="submit"class="btn btn-primary ml-2" style="width:100px;">追加</button>
                                 </div>
                             </form>
                         </div>
@@ -60,4 +63,8 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('js')
+<script src="{{ mix('js/todo_category.js') }}" defer></script>
 @endsection
