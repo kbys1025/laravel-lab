@@ -50,7 +50,11 @@
                                         <tr>
                                             <td style="width:90%;">{{ $todo_category->name }}</td>
                                             <td style="width:10%;">
-                                                <button class="btn btn-danger btn-sm">削除</button>
+                                                <button type="button" class="btn btn-danger btn-sm" 
+                                                    data-toggle="modal" 
+                                                    data-target="#deleteModal" 
+                                                    data-id="{{ $todo_category->id }}"
+                                                >削除</button>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -63,6 +67,10 @@
         </div>
     </div>
 </div>
+@component('modal.delete')
+    <p>カテゴリに属するToDoも削除されます。</p>
+@endcomponent
+
 @endsection
 
 @section('js')

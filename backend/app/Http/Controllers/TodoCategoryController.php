@@ -86,6 +86,9 @@ class TodoCategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $todo_category = TodoCategory::find($id);
+        $todo_category->delete();
+
+        return redirect('todo-category');
     }
 }
