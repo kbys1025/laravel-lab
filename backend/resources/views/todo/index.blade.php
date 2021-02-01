@@ -60,30 +60,20 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td><a href="#">Todo機能作成</a></td>
-                                        <td>プログラミング</td>
-                                        <td>着手中</td>
-                                        <td>2021/1/31</td>
-                                        <td>
-                                            <button class="btn btn-success btn-sm">編集</button>
-                                        </td>
-                                        <td>
-                                            <button class="btn btn-danger btn-sm">削除</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><a href="#">胸トレ</a></td>
-                                        <td>筋トレ</td>
-                                        <td>未着手</td>
-                                        <td>2021/2/1</td>
-                                        <td>
-                                            <button class="btn btn-success btn-sm">編集</button>
-                                        </td>
-                                        <td>
-                                            <button class="btn btn-danger btn-sm">削除</button>
-                                        </td>
-                                    </tr>
+                                    @foreach ($todos as $todo)
+                                        <tr>
+                                            <td><a href="#">{{ $todo->title }}</a></td>
+                                            <td>{{ $todo->todo_category->name }}</td>
+                                            <td>@if($todo->status == config('const.todos.STATUS_IN_PROGRESS')) 着手中 @elseif($todo->status == config('const.todos.STATUS_COMPLETED')) 完了 @else 未着手 @endif</td>
+                                            <td>@if(isset($todo->deadline)) $todo->deadline @else 未設定 @endif</td>
+                                            <td>
+                                                <a href="#" class="btn btn-success btn-sm">編集</a>
+                                            </td>
+                                            <td>
+                                                <button class="btn btn-danger btn-sm">削除</button>
+                                            </td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
