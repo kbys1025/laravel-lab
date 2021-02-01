@@ -4,10 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class TodoCategory extends Model
+class Todo extends Model
 {
     protected $fillable = [
-        'name',
+        'title', 'text', 'status', 'deadline',
     ];
 
     public function user()
@@ -15,8 +15,8 @@ class TodoCategory extends Model
         return $this->belongsTo('App\User');
     }
 
-    public function todos()
+    public function todo_category()
     {
-        return $this->hasMany('App\Todo');
+        return $this->belongsTo('App\TodoCategory');
     }
 }
