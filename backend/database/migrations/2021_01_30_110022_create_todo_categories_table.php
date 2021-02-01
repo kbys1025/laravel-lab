@@ -15,7 +15,8 @@ class CreateTodoCategoriesTable extends Migration
     {
         Schema::create('todo_categories', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name')->unique();;
+            $table->integer('user_id')->unsigned();
+            $table->string('name')->unique();
             $table->timestamps();
         });
     }

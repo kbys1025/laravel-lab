@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\TodoCategory;
 use App\Http\Requests\TodoCategoryRequest;
+use Illuminate\Support\Facades\Auth;
 
 class TodoCategoryController extends Controller
 {
@@ -15,7 +16,8 @@ class TodoCategoryController extends Controller
      */
     public function index()
     {
-        $todo_categories = TodoCategory::all();
+        $login_user = Auth::user();
+        $todo_categories = $login_user->todo_categories;
         return view('todo_category.index', ['todo_categories' => $todo_categories]);
     }
 
@@ -38,6 +40,7 @@ class TodoCategoryController extends Controller
     public function store(TodoCategoryRequest $request)
     {
         $todo_category = new TodoCategory;
+        $todo_category->user_id = Auth::id();
         $todo_category->name = $request->name;
         $todo_category->save();
 

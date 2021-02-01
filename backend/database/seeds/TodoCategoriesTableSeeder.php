@@ -15,6 +15,7 @@ class TodoCategoriesTableSeeder extends Seeder
         $categoreis = array('プログラミング', '筋トレ', '家事', '買い物');
         foreach ($categoreis as $category) {
             $todo_category = new TodoCategory;
+            $todo_category->user_id = 1;
             $todo_category->name = $category;
             $todo_category->save();
         }
