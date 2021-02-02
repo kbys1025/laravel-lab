@@ -21,11 +21,11 @@
                                     @if ($errors->has('name'))
                                         <span class="text-danger">{{ $errors->first('name') }}</span>
                                     @endif
-                                    <input type="text" class="form-control" name="name">
+                                    <input type="text" class="form-control" name="name" value="{{ old('name') }}">
                                 </div>
                                 <div class="float-right">
                                     <button type="button" class="btn btn-light border" style="width:100px;">キャンセル</button>
-                                    <button type="submit"class="btn btn-primary ml-2" style="width:100px;">追加</button>
+                                    <button type="submit" class="btn btn-primary ml-2" style="width:100px;">追加</button>
                                 </div>
                             </form>
                         </div>
