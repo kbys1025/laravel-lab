@@ -1,9 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\TodoRequest;
+use App\Todo;
 
 class TodoController extends Controller
 {
@@ -18,5 +20,18 @@ class TodoController extends Controller
     {
         $todo_categories = Auth::user()->todo_categories;
         return view('todo.create', ['todo_categories' => $todo_categories]);
+    }
+
+    public function store(TodoRequest $request)
+    {
+        $todo = new Todo;
+        $todo->user_id = Auth::id();
+        $todo->todo_category_id = $request->todo_category_id;
+        $todo->title = $request->title;
+        $todo->deadline = $request->deadline;
+        $todo->text = $request->text;
+        $todo->save();
+
+        return redirect('todo');
     }
 }
