@@ -46,7 +46,7 @@
                         </div>
                         <div class="card-body">
                             <div class="mb-2">
-                                <a href="#" class="btn btn-primary btn-sm">ToDo 追加</a>
+                                <a href="todo/create" class="btn btn-primary btn-sm">ToDo 追加</a>
                             </div>
                             <table class="table table-hover">
                                 <thead>
