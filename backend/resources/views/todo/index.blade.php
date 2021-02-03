@@ -65,7 +65,7 @@
                                             <td><a href="todo/{{ $todo->id }}">{{ $todo->title }}</a></td>
                                             <td>{{ $todo->todo_category->name }}</td>
                                             <td>@if($todo->status == config('const.todos.STATUS_IN_PROGRESS')) 着手中 @elseif($todo->status == config('const.todos.STATUS_COMPLETED')) 完了 @else 未着手 @endif</td>
-                                            <td>@if(isset($todo->deadline)) $todo->deadline @else 未設定 @endif</td>
+                                            <td>@if(isset($todo->deadline)) {{ $todo->deadline->format('Y/m/d') }} @else 未設定 @endif</td>
                                             <td>
                                                 <a href="#" class="btn btn-success btn-sm">編集</a>
                                             </td>
