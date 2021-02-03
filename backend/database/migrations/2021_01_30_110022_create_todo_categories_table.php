@@ -15,9 +15,13 @@ class CreateTodoCategoriesTable extends Migration
     {
         Schema::create('todo_categories', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('user_id')->unsigned();
+            $table->unsignedBigInteger('user_id');
             $table->string('name')->unique();
             $table->timestamps();
+
+            $table->foreign('user_id')
+            ->references('id')->on('users')
+            ->onDelete('cascade');
         });
     }
 
