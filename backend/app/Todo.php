@@ -10,6 +10,10 @@ class Todo extends Model
         'title', 'text', 'status', 'deadline',
     ];
 
+    protected $dates = [
+        'deadline',
+    ];
+
     public function user()
     {
         return $this->belongsTo('App\User');
