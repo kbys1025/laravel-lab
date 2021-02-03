@@ -6,7 +6,7 @@
         <div class="col-md-9">            
             <div class="card">
                 <div class="card-header">
-                    <span>ToDo一覧</span>
+                    <span>ToDo新規登録</span>
                 </div>
                 <div class="card-body">
                     <form action="/todo" method="POST">
