@@ -3,14 +3,17 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-9">            
+        <div class="col-md-9">
+            <div class="mb-2">
+                <a href="/todo">ToDo一覧へ</a>
+            </div>      
             <div class="card">
                 <div class="card-header">
                     <span>ToDo詳細</span>
                 </div>
                 <div class="card-body">
                     <div class="text-right">
-                        <a href="#" class="btn btn-success" style="width:100px;">編集</a>
+                        <a href="/todo/{{ $todo->id }}/edit" class="btn btn-success" style="width:100px;">編集</a>
                         <button href="#" class="btn btn-danger ml-2" style="width:100px;">削除</button>
                     </div>
                     <div class="border-bottom mb-3">

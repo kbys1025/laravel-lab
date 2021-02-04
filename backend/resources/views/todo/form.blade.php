@@ -37,9 +37,24 @@
                                 <span class="text-danger">{{ $errors->first('todo_category_id') }}</span>
                             @endif
                         </div>
+                        @if ($action == 'edit')
+                            <div class="form-group">
+                                <label for="todoStatus">状態</label>
+                                <select id="todoStatus" class="form-control" name="status">
+                                    @foreach ($status_list as $key => $val)
+                                        <option value="{{ $key }}" @if (old('status', $todo->status) == $key) selected @endif>
+                                            {{ $val }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                                @if ($errors->has('status'))
+                                    <span class="text-danger">{{ $errors->first('status') }}</span>
+                                @endif
+                            </div>
+                        @endif
                         <div class="form-group">
                             <label for="todoDeadline">期限</label>
-                            <input type="date" id="todoDeadline" class="form-control" name="deadline" value="{{ old('deadline', $todo->deadline) }}">
+                            <input type="date" id="todoDeadline" class="form-control" name="deadline" value="{{ old('deadline', optional($todo->deadline)->format('Y-m-d')) }}">
                             @if ($errors->has('deadline'))
                                 <span class="text-danger">{{ $errors->first('deadline') }}</span>
                             @endif

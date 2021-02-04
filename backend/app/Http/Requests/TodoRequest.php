@@ -26,6 +26,7 @@ class TodoRequest extends FormRequest
         return [
             'todo_category_id' => 'required',
             'title' => 'required|max:50',
+            'status' => 'nullable|integer',
             'deadline' => 'nullable|date',
             'text' => 'max:255',
         ];
@@ -36,6 +37,7 @@ class TodoRequest extends FormRequest
         return [
             'todo_category_id' => 'カテゴリ',
             'title' => 'タイトル',
+            'status' => '状態',
             'deadline' => '期限',
             'text' => 'メモ',
         ];
