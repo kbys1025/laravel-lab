@@ -18,8 +18,11 @@ class TodoController extends Controller
 
     public function create()
     {
+        $action = 'create';
+        $todo = new Todo;
         $todo_categories = Auth::user()->todo_categories;
-        return view('todo.create', ['todo_categories' => $todo_categories]);
+        
+        return view('todo.form', ['todo_categories' => $todo_categories, 'action' => $action, 'todo' => $todo]);
     }
 
     public function store(TodoRequest $request)
