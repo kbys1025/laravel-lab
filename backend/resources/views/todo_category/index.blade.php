@@ -54,6 +54,7 @@
                                                     data-toggle="modal" 
                                                     data-target="#deleteModal" 
                                                     data-id="{{ $todo_category->id }}"
+                                                    data-controller="todo-category"
                                                 >削除</button>
                                             </td>
                                         </tr>
@@ -74,5 +75,5 @@
 @endsection
 
 @section('js')
-<script src="{{ mix('js/todo_category.js') }}" defer></script>
+<script src="{{ mix('js/delete_modal.js') }}" defer></script>
 @endsection
