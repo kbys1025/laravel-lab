@@ -14,7 +14,12 @@
                 <div class="card-body">
                     <div class="text-right">
                         <a href="/todo/{{ $todo->id }}/edit" class="btn btn-success" style="width:100px;">編集</a>
-                        <button href="#" class="btn btn-danger ml-2" style="width:100px;">削除</button>
+                        <button type="button" class="btn btn-danger ml-2" style="width:100px;"
+                            data-toggle="modal" 
+                            data-target="#deleteModal" 
+                            data-id="{{ $todo->id }}"
+                            data-controller="todo"
+                        >削除</button>
                     </div>
                     <div class="border-bottom mb-3">
                         <label for="todoTitle">タイトル</label>
@@ -41,4 +46,11 @@
         </div>
     </div>
 </div>
+@component('modal.delete')
+@endcomponent
+
+@endsection
+
+@section('js')
+<script src="{{ mix('js/delete_modal.js') }}" defer></script>
 @endsection

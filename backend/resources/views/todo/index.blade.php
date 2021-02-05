@@ -69,8 +69,13 @@
                                             <td>
                                                 <a href="todo/{{ $todo->id }}/edit" class="btn btn-success btn-sm">編集</a>
                                             </td>
-                                            <td>
-                                                <button class="btn btn-danger btn-sm">削除</button>
+                                            <td style="width:10%;">
+                                                <button type="button" class="btn btn-danger btn-sm" 
+                                                    data-toggle="modal" 
+                                                    data-target="#deleteModal" 
+                                                    data-id="{{ $todo->id }}"
+                                                    data-controller="todo"
+                                                >削除</button>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -84,4 +89,11 @@
 
     </div>
 </div>
+@component('modal.delete')
+@endcomponent
+
+@endsection
+
+@section('js')
+<script src="{{ mix('js/delete_modal.js') }}" defer></script>
 @endsection

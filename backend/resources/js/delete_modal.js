@@ -3,7 +3,7 @@ $(function() {
         let button = $(event.relatedTarget);
         let id = button.data('id');
         let controller = button.data('controller');
-        let url = controller + '/' + id;
+        let url = '/' + controller + '/' + id;
         document.deleteform.action = url;
     })
 });
