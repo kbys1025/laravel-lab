@@ -19,7 +19,7 @@ class CreateTodosTable extends Migration
             $table->unsignedBigInteger('todo_category_id');
             $table->string('title');
             $table->string('text')->nullable();
-            $table->integer('status')->unsigned()->default(0);
+            $table->integer('status')->unsigned()->default(1);
             $table->date('deadline')->nullable();
             $table->timestamps();
 
