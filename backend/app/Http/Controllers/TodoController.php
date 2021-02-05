@@ -19,14 +19,12 @@ class TodoController extends Controller
         $selected_status = $request->input('status');
         $query = [];
 
-        if (!empty($selected_category_id) && $selected_category_id !== 'all') {
-            $selected_category_id = intval($selected_category_id);
+        if (!empty($selected_category_id) && $selected_category_id != 'all') {
             $query[] = array('todo_category_id', '=', $request->input('todo_category_id'));
         }
 
-        if (!empty($selected_status) && $selected_status !== 'all') {
-            $selected_status = intval($selected_status);
-            if ($selected_status === 4) {
+        if (!empty($selected_status) && $selected_status != 'all') {
+            if ($selected_status == 4) {
                 $query[] = array('status', '<>', 3);
             } else {
                 $query[] = array('status', '=', $request->input('status'));

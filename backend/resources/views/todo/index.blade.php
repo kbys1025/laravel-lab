@@ -21,7 +21,7 @@
                                     <select class="form-control todo-search" id="categorySelect" name="todo_category_id">
                                         <option value="all">すべて</option>
                                         @foreach ($todo_categories as $todo_category) 
-                                            <option value="{{ $todo_category->id }}" @if($todo_category->id === $selected_category_id) selected @endif>
+                                            <option value="{{ $todo_category->id }}" @if($todo_category->id == $selected_category_id) selected @endif>
                                                 {{ $todo_category->name }}
                                             </option>
                                         @endforeach
@@ -32,7 +32,7 @@
                                     <select class="form-control todo-search" id="statusSelect" name="status">
                                         <option value="all">すべて</option>
                                         @foreach ($status_list as $key => $val) 
-                                            <option value="{{ $key }}" @if($key === $selected_status) selected @endif>
+                                            <option value="{{ $key }}" @if($key == $selected_status) selected @endif>
                                                 {{ $val }}
                                             </option>
                                         @endforeach
@@ -68,7 +68,7 @@
                                         <tr>
                                             <td><a href="todo/{{ $todo->id }}">{{ $todo->title }}</a></td>
                                             <td>{{ $todo->todo_category->name }}</td>
-                                            <td>@if($todo->status === config('const.todos.STATUS_IN_PROGRESS')) 着手中 @elseif($todo->status === config('const.todos.STATUS_COMPLETED')) 完了 @else 未着手 @endif</td>
+                                            <td>@if($todo->status == config('const.todos.STATUS_IN_PROGRESS')) 着手中 @elseif($todo->status == config('const.todos.STATUS_COMPLETED')) 完了 @else 未着手 @endif</td>
                                             <td>@if(isset($todo->deadline)) {{ $todo->deadline->format('Y/m/d') }} @else 未設定 @endif</td>
                                             <td>
                                                 <a href="todo/{{ $todo->id }}/edit" class="btn btn-success btn-sm">編集</a>
