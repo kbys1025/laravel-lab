@@ -15,23 +15,27 @@
                             <span>絞り込み</span>
                         </div>
                         <div class="card-body">
-                            <form action="">
+                            <form action="/todo" method="GET" id="todoSearch">
                                 <div class="form-group">
                                     <label for="categorySelect">カテゴリ</label>
-                                    <select class="form-control" id="categorySelect">
-                                        <option>すべて</option>
-                                        <option>プログラミング</option>
-                                        <option>筋トレ</option>
+                                    <select class="form-control todo-search" id="categorySelect" name="todo_category_id">
+                                        <option value="all">すべて</option>
+                                        @foreach ($todo_categories as $todo_category) 
+                                            <option value="{{ $todo_category->id }}" @if($todo_category->id === $selected_category_id) selected @endif>
+                                                {{ $todo_category->name }}
+                                            </option>
+                                        @endforeach
                                     </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="statusSelect">状態</label>
-                                    <select class="form-control" id="statusSelect">
-                                        <option>すべて</option>
-                                        <option>未着手</option>
-                                        <option>着手中</option>
-                                        <option>未完了</option>
-                                        <option>完了</option>
+                                    <select class="form-control todo-search" id="statusSelect" name="status">
+                                        <option value="all">すべて</option>
+                                        @foreach ($status_list as $key => $val) 
+                                            <option value="{{ $key }}" @if($key === $selected_status) selected @endif>
+                                                {{ $val }}
+                                            </option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </form>
@@ -64,7 +68,7 @@
                                         <tr>
                                             <td><a href="todo/{{ $todo->id }}">{{ $todo->title }}</a></td>
                                             <td>{{ $todo->todo_category->name }}</td>
-                                            <td>@if($todo->status == config('const.todos.STATUS_IN_PROGRESS')) 着手中 @elseif($todo->status == config('const.todos.STATUS_COMPLETED')) 完了 @else 未着手 @endif</td>
+                                            <td>@if($todo->status === config('const.todos.STATUS_IN_PROGRESS')) 着手中 @elseif($todo->status === config('const.todos.STATUS_COMPLETED')) 完了 @else 未着手 @endif</td>
                                             <td>@if(isset($todo->deadline)) {{ $todo->deadline->format('Y/m/d') }} @else 未設定 @endif</td>
                                             <td>
                                                 <a href="todo/{{ $todo->id }}/edit" class="btn btn-success btn-sm">編集</a>
@@ -96,4 +100,5 @@
 
 @section('js')
 <script src="{{ mix('js/delete_modal.js') }}" defer></script>
+<script src="{{ mix('js/todo.js') }}" defer></script>
 @endsection
