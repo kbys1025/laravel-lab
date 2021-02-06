@@ -54,7 +54,7 @@
                                                     data-toggle="modal" 
                                                     data-target="#deleteModal" 
                                                     data-id="{{ $todo_category->id }}"
-                                                    data-controller="todo-category"
+                                                    data-routes="todo-category"
                                                 >削除</button>
                                             </td>
                                         </tr>

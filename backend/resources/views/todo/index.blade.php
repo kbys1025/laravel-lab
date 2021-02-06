@@ -78,7 +78,7 @@
                                                     data-toggle="modal" 
                                                     data-target="#deleteModal" 
                                                     data-id="{{ $todo->id }}"
-                                                    data-controller="todo"
+                                                    data-routes="todo"
                                                 >削除</button>
                                             </td>
                                         </tr>
